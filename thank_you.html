@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>感谢您的申请 · VIP 转会专区</title>
+<style>
+  :root {
+    --bg: #f5efe3;
+    --bg-soft: #ede5d1;
+    --bg-card: #ffffff;
+    --primary: #1f5e3d;
+    --primary-deep: #154a2e;
+    --primary-light: #3a8c5c;
+    --accent: #f0b800;
+    --accent-deep: #d49d06;
+    --text: #1a2620;
+    --text-soft: #4a5a52;
+    --text-mute: #8a9690;
+    --border: rgba(31,94,61,0.18);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "PingFang SC", "Microsoft YaHei", system-ui, -apple-system, Arial, sans-serif;
+    background:
+      radial-gradient(ellipse 80% 50% at 50% 0%, rgba(31,94,61,0.08) 0%, transparent 70%),
+      linear-gradient(180deg, var(--bg) 0%, var(--bg-soft) 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    color: var(--text);
+    line-height: 1.6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 20px;
+    overflow-x: hidden;
+  }
+
+  /* CONFETTI */
+  .confetti {
+    position: fixed;
+    top: -20px;
+    width: 10px;
+    height: 14px;
+    opacity: 0;
+    animation: fall 4s linear forwards;
+    z-index: 0;
+  }
+  @keyframes fall {
+    0%   { transform: translateY(-20px) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(100vh) rotate(720deg); opacity: 0.2; }
+  }
+
+  .card {
+    position: relative;
+    max-width: 600px;
+    width: 100%;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-top: 4px solid var(--primary);
+    border-radius: 28px;
+    padding: 50px 40px;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(31,94,61,0.15);
+    z-index: 1;
+    animation: rise 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .check-circle {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), var(--primary-deep));
+    margin: 0 auto 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 60px;
+    color: #fff;
+    box-shadow: 0 10px 30px rgba(31,94,61,0.4);
+    animation: pop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s both;
+    position: relative;
+  }
+  .check-circle::after {
+    content: "";
+    position: absolute;
+    inset: -8px;
+    border-radius: 50%;
+    border: 2px solid var(--primary);
+    opacity: 0;
+    animation: ripple 1.4s ease-out 0.6s infinite;
+  }
+  @keyframes pop {
+    0%   { transform: scale(0); }
+    70%  { transform: scale(1.15); }
+    100% { transform: scale(1); }
+  }
+  @keyframes ripple {
+    0%   { transform: scale(0.95); opacity: 0.6; }
+    100% { transform: scale(1.3); opacity: 0; }
+  }
+
+  h1 {
+    font-size: 34px;
+    font-weight: 900;
+    color: var(--primary-deep);
+    margin-bottom: 14px;
+  }
+  .lead {
+    font-size: 17px;
+    color: var(--text-soft);
+    margin-bottom: 28px;
+  }
+  .lead strong { color: var(--primary-deep); }
+
+  .summary-box {
+    background: linear-gradient(135deg, #f6fbf7 0%, #eef7f1 100%);
+    border: 1px solid var(--primary-light);
+    border-radius: 14px;
+    padding: 20px;
+    margin-bottom: 28px;
+    text-align: left;
+  }
+  .summary-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px dashed rgba(31,94,61,0.15);
+    font-size: 14px;
+  }
+  .summary-row:last-child { border-bottom: none; }
+  .summary-row .k { color: var(--text-soft); }
+  .summary-row .v { color: var(--primary-deep); font-weight: 700; }
+
+  .timeline {
+    text-align: left;
+    margin-bottom: 30px;
+  }
+  .timeline h3 {
+    color: var(--primary-deep);
+    font-size: 15px;
+    margin-bottom: 16px;
+    text-align: center;
+    font-weight: 800;
+  }
+  .step {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 14px;
+    padding: 12px;
+    border-radius: 10px;
+    background: #fafaf6;
+    border: 1px solid var(--border);
+  }
+  .step-icon {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+    color: #fff;
+    font-weight: 900;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 4px 10px rgba(240,184,0,0.4);
+  }
+  .step-text { flex: 1; }
+  .step-title { font-weight: 700; color: var(--text); margin-bottom: 2px; }
+  .step-desc { font-size: 13px; color: var(--text-soft); }
+
+  .btn-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .btn {
+    padding: 16px 20px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 800;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  .btn-primary {
+    background: linear-gradient(90deg, var(--primary-deep), var(--primary));
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(31,94,61,0.3);
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 26px rgba(31,94,61,0.45);
+  }
+  .btn-ghost {
+    background: #fafaf6;
+    color: var(--primary-deep);
+    border: 2px solid var(--border);
+  }
+  .btn-ghost:hover {
+    background: #fff;
+    border-color: var(--primary);
+  }
+
+  .small-note {
+    margin-top: 24px;
+    font-size: 12px;
+    color: var(--text-mute);
+  }
+
+  @media (max-width: 600px) {
+    .card { padding: 36px 24px; }
+    h1 { font-size: 24px; }
+    .btn-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+
+  <div class="check-circle">✓</div>
+
+  <h1>申请提交成功!</h1>
+  <p class="lead">感谢您选择 VIP 转会专区,<br>您的申请已成功送达我们的客户经理。</p>
+
+  <div class="summary-box" id="summaryBox" style="display:none;">
+    <div class="summary-row">
+      <span class="k">📋 申请等级</span>
+      <span class="v" id="sTier">—</span>
+    </div>
+    <div class="summary-row">
+      <span class="k">👤 申请人</span>
+      <span class="v" id="sName">—</span>
+    </div>
+    <div class="summary-row">
+      <span class="k">📞 联系电话</span>
+      <span class="v" id="sPhone">—</span>
+    </div>
+    <div class="summary-row">
+      <span class="k">🕐 提交时间</span>
+      <span class="v" id="sTime">—</span>
+    </div>
+  </div>
+
+  <div class="timeline">
+    <h3>✨ 接下来会发生什么</h3>
+    <div class="step">
+      <div class="step-icon">1</div>
+      <div class="step-text">
+        <div class="step-title">资料审核 (1-3 小时)</div>
+        <div class="step-desc">客户经理将根据您选择的等级核对资料</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-icon">2</div>
+      <div class="step-text">
+        <div class="step-title">专人联系您 (24 小时内)</div>
+        <div class="step-desc">通过 WhatsApp / 电话与您沟通开通细节</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-icon">3</div>
+      <div class="step-text">
+        <div class="step-title">VIP 身价开通 · 立即享受待遇</div>
+        <div class="step-desc">升级红利 + 升级礼品 + 全部 VIP 专属权益</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="btn-row">
+    <a href="vip_landing_page.html" class="btn btn-ghost">← 返回首页</a>
+    <a href="#" class="btn btn-primary" id="contactBtn">💬 联系经理加急</a>
+  </div>
+
+  <p class="small-note">🔒 您的资料已加密保存,严格保密。</p>
+
+</div>
+
+<script>
+  (function() {
+    const colors = ['#1f5e3d','#3a8c5c','#f0b800','#d49d06','#fff'];
+    for (let i = 0; i < 50; i++) {
+      const c = document.createElement('div');
+      c.className = 'confetti';
+      c.style.left = Math.random() * 100 + 'vw';
+      c.style.background = colors[Math.floor(Math.random() * colors.length)];
+      c.style.animationDelay = Math.random() * 2 + 's';
+      c.style.animationDuration = (3 + Math.random() * 2) + 's';
+      document.body.appendChild(c);
+    }
+  })();
+
+  try {
+    const raw = sessionStorage.getItem('vipApplyData');
+    if (raw) {
+      const d = JSON.parse(raw);
+      document.getElementById('sTier').textContent  = d.tier + ' VIP';
+      document.getElementById('sName').textContent  = d.name;
+      document.getElementById('sPhone').textContent = d.phone;
+      const t = new Date(d.time);
+      document.getElementById('sTime').textContent  =
+        t.toLocaleString('zh-CN', { hour12: false });
+      document.getElementById('summaryBox').style.display = 'block';
+    }
+  } catch(_) {}
+
+  document.getElementById('contactBtn').addEventListener('click', (e) => {
+    e.preventDefault();
+    alert('🎯 加急联系经理\n\n请在此处接入您的客服联系方式:\n• WhatsApp: https://wa.me/60xxxxxxxxx\n• Telegram: https://t.me/yourchannel\n• 在线客服\n\n(在 thank_you.html 文件中找到 contactBtn 的事件处理函数即可替换)');
+  });
+</script>
+
+</body>
+</html>
