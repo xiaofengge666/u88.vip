@@ -671,9 +671,16 @@
   }
 
   /* 明星 + 网红:桌面并排,手机堆叠 */
-  @media (min-width: 768px) {
-    .celeb-kol-wrapper { display:grid; grid-template-columns:1fr 1fr; gap:40px; max-width:1100px; margin:0 auto; align-items:start; }
+@media (min-width: 768px) {
+  .celeb-kol-wrapper {
+    display:grid;
+    grid-template-columns:1.4fr 2fr;
+    gap:40px;
+    max-width:1100px;
+    margin:0 auto;
+    align-items:start;
   }
+}
   @media (max-width: 767px) {
     .celeb-kol-wrapper { display:block; }
   }
@@ -944,43 +951,44 @@
         <div style="font-size:24px; font-weight:900; color:var(--primary-deep); margin-top:6px;">百万网红的共同推荐</div>
       </div>
       <div style="overflow:hidden;">
-        <div id="kolTrack" style="display:flex; transition:transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94);">
-          <div style="min-width:100%; display:flex; gap:16px; justify-content:center;">
-            <div style="background:var(--bg-card); border:1px solid var(--border-gold); border-radius:16px; padding:20px 16px; text-align:center; width:140px; box-shadow:var(--shadow-sm);">
-              <img src="kol-1.png" style="width:80px; height:80px; border-radius:50%; object-fit:cover; border:2px solid var(--gold);">
-              <div style="margin-top:10px; font-size:13px; font-weight:700; color:var(--primary-deep);">Angelowee</div>
-            </div>
-            <div style="background:var(--bg-card); border:1px solid var(--border-gold); border-radius:16px; padding:20px 16px; text-align:center; width:140px; box-shadow:var(--shadow-sm);">
-              <img src="kol-2.png" style="width:80px; height:80px; border-radius:50%; object-fit:cover; border:2px solid var(--gold);">
-              <div style="margin-top:10px; font-size:13px; font-weight:700; color:var(--primary-deep);">Fedora</div>
-            </div>
-            <div style="background:var(--bg-card); border:1px solid var(--border-gold); border-radius:16px; padding:20px 16px; text-align:center; width:140px; box-shadow:var(--shadow-sm);">
-              <img src="kol-3.png" style="width:80px; height:80px; border-radius:50%; object-fit:cover; border:2px solid var(--gold);">
-              <div style="margin-top:10px; font-size:13px; font-weight:700; color:var(--primary-deep);">PeiYu</div>
-            </div>
-            <div style="background:var(--bg-card); border:1px solid var(--border-gold); border-radius:16px; padding:20px 16px; text-align:center; width:140px; box-shadow:var(--shadow-sm);">
-              <img src="kol-4.png" style="width:80px; height:80px; border-radius:50%; object-fit:cover; border:2px solid var(--gold);">
-              <div style="margin-top:10px; font-size:13px; font-weight:700; color:var(--primary-deep);">Valent</div>
-            </div>
-          </div>
-          <div style="min-width:100%; display:flex; gap:16px; justify-content:center;">
-            <div style="background:var(--bg-card); border:1px solid var(--border-gold); border-radius:16px; padding:20px 16px; text-align:center; width:140px; box-shadow:var(--shadow-sm);">
-              <img src="kol-5.png" style="width:80px; height:80px; border-radius:50%; object-fit:cover; border:2px solid var(--gold);">
-              <div style="margin-top:10px; font-size:13px; font-weight:700; color:var(--primary-deep);">Kevin</div>
-            </div>
-            <div style="background:var(--bg-card); border:1px solid var(--border-gold); border-radius:16px; padding:20px 16px; text-align:center; width:140px; box-shadow:var(--shadow-sm);">
-              <img src="kol-6.png" style="width:80px; height:80px; border-radius:50%; object-fit:cover; border:2px solid var(--gold);">
-              <div style="margin-top:10px; font-size:13px; font-weight:700; color:var(--primary-deep);">Danny</div>
-            </div>
-            <div style="background:var(--bg-card); border:1px solid var(--border-gold); border-radius:16px; padding:20px 16px; text-align:center; width:140px; box-shadow:var(--shadow-sm);">
-              <img src="kol-7.png" style="width:80px; height:80px; border-radius:50%; object-fit:cover; border:2px solid var(--gold);">
-              <div style="margin-top:10px; font-size:13px; font-weight:700; color:var(--primary-deep);">Caven</div>
-            </div>
-          </div>
-        </div>
+       <div id="kolTrack" style="display:flex; transition:transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94);">
+  <!-- Page 1: 2+2 -->
+  <div style="min-width:100%; display:grid; grid-template-columns:1fr 1fr; gap:16px; padding:0 10px;">
+    <div style="background:var(--bg-card); border:1px solid var(--border-gold); border-radius:16px; padding:20px 16px; text-align:center; box-shadow:var(--shadow-sm);">
+      <img src="kol-1.png" style="width:80px; height:80px; border-radius:50%; object-fit:cover; border:2px solid var(--gold);">
+      <div style="margin-top:10px; font-size:13px; font-weight:700; color:var(--primary-deep);">Angelowee</div>
+    </div>
+    <div style="background:var(--bg-card); border:1px solid var(--border-gold); border-radius:16px; padding:20px 16px; text-align:center; box-shadow:var(--shadow-sm);">
+      <img src="kol-2.png" style="width:80px; height:80px; border-radius:50%; object-fit:cover; border:2px solid var(--gold);">
+      <div style="margin-top:10px; font-size:13px; font-weight:700; color:var(--primary-deep);">Fedora</div>
+    </div>
+    <div style="background:var(--bg-card); border:1px solid var(--border-gold); border-radius:16px; padding:20px 16px; text-align:center; box-shadow:var(--shadow-sm);">
+      <img src="kol-3.png" style="width:80px; height:80px; border-radius:50%; object-fit:cover; border:2px solid var(--gold);">
+      <div style="margin-top:10px; font-size:13px; font-weight:700; color:var(--primary-deep);">PeiYu</div>
+    </div>
+    <div style="background:var(--bg-card); border:1px solid var(--border-gold); border-radius:16px; padding:20px 16px; text-align:center; box-shadow:var(--shadow-sm);">
+      <img src="kol-4.png" style="width:80px; height:80px; border-radius:50%; object-fit:cover; border:2px solid var(--gold);">
+      <div style="margin-top:10px; font-size:13px; font-weight:700; color:var(--primary-deep);">Valent</div>
+    </div>
+  </div>
+  <!-- Page 2: 2+1 -->
+  <div style="min-width:100%; display:grid; grid-template-columns:1fr 1fr; gap:16px; padding:0 10px;">
+    <div style="background:var(--bg-card); border:1px solid var(--border-gold); border-radius:16px; padding:20px 16px; text-align:center; box-shadow:var(--shadow-sm);">
+      <img src="kol-5.png" style="width:80px; height:80px; border-radius:50%; object-fit:cover; border:2px solid var(--gold);">
+      <div style="margin-top:10px; font-size:13px; font-weight:700; color:var(--primary-deep);">Kevin</div>
+    </div>
+    <div style="background:var(--bg-card); border:1px solid var(--border-gold); border-radius:16px; padding:20px 16px; text-align:center; box-shadow:var(--shadow-sm);">
+      <img src="kol-6.png" style="width:80px; height:80px; border-radius:50%; object-fit:cover; border:2px solid var(--gold);">
+      <div style="margin-top:10px; font-size:13px; font-weight:700; color:var(--primary-deep);">Danny</div>
+    </div>
+    <div style="grid-column:1/-1; display:flex; justify-content:center;">
+      <div style="background:var(--bg-card); border:1px solid var(--border-gold); border-radius:16px; padding:20px 16px; text-align:center; box-shadow:var(--shadow-sm); width:calc(50% - 8px);">
+        <img src="kol-7.png" style="width:80px; height:80px; border-radius:50%; object-fit:cover; border:2px solid var(--gold);">
+        <div style="margin-top:10px; font-size:13px; font-weight:700; color:var(--primary-deep);">Caven</div>
       </div>
     </div>
   </div>
+</div>
 </section>
 
 <!-- GOOGLE TRUST -->
