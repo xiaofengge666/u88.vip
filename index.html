@@ -1216,8 +1216,21 @@
 
   function contactManager(e) {
     e.preventDefault();
-    alert('🎯 申请「客制化绿色通道」\n\n您的专属客户经理已待命:\n• 跳过标准审核流程\n• 客制化身价匹配方案\n• 优先发放升级礼品\n\n(此处可接入 WhatsApp / Telegram / 在线客服链接)');
-  }
+    const ok = confirm(`🎯 申请「客制化绿色通道」
+
+您的专属客户经理已待命：
+• 跳过标准审核流程
+• 客制化身价匹配方案
+• 优先发放升级礼品
+
+点击确定联系 VIP 客户经理`);
+
+if (ok) {
+  window.open(
+    "https://wa.me/60123456789?text=您好，我想申请VIP绿色通道",
+    "_blank"
+  );
+}
 
   // Golden particles in hero-right
   (function() {
