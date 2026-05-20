@@ -310,10 +310,14 @@
     }
   } catch(_) {}
 
-  document.getElementById('contactBtn').addEventListener('click', (e) => {
-    e.preventDefault();
-    alert('🎯 加急联系经理\n\n请在此处接入您的客服联系方式:\n• WhatsApp: https://wa.me/60xxxxxxxxx\n• Telegram: https://t.me/yourchannel\n• 在线客服\n\n(在 thank_you.html 文件中找到 contactBtn 的事件处理函数即可替换)');
-  });
+   document.getElementById('contactBtn').addEventListener('click', function(e) {
+  e.preventDefault();
+
+  window.open(
+    'https://wa.me/60123456789?text=您好，我刚提交了VIP申请，想联系经理加急处理',
+    '_blank'
+  );
+});
 </script>
 
 </body>
